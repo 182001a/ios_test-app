@@ -1,7 +1,5 @@
-// Card.tsx
-
 import React from 'react'
-import { View, Text, StyleSheet, ViewStyle, TextStyle, Image, ImageStyle, ImageSourcePropType } from 'react-native'
+import { View, Text, StyleSheet, ViewStyle, TextStyle, Image, ImageStyle, ImageSourcePropType, Pressable } from 'react-native'
 
 interface CardProps {
   title?: string
@@ -9,11 +7,12 @@ interface CardProps {
   image?: string | ImageSourcePropType
   date?: string
   place?: string
+  onPress?: () => void
 }
 
-function Card({ title, description, date, place, image }: CardProps) {
+function Card({ title, description, date, place, image, onPress }: CardProps) {
   return (
-    <View style={styles.cardContainer}>
+    <Pressable style={styles.cardContainer} onPress={onPress}>
       {title && <Text style={styles.cardTitle}>{title}</Text>}
       {description && <Text style={styles.cardDescription}>{description}</Text>}
       {date && <Text style={styles.cardDate}>{date}</Text>}
@@ -25,7 +24,7 @@ function Card({ title, description, date, place, image }: CardProps) {
           <Image source={image} style={styles.cardImage} resizeMode="cover" />
         )
       ) : null}
-    </View>
+    </Pressable>
   )
 }
 
@@ -40,7 +39,7 @@ const styles = StyleSheet.create<{
   cardImage: ImageStyle
 }>({
   cardContainer: {
-    width: 300, 
+    width: '100%', 
     backgroundColor: '#fff',
     borderRadius: 8,
     padding: 16,
