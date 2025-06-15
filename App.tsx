@@ -8,7 +8,7 @@ import AddPostScreen from './screens/AddPostScreen'
 
 export type RootStackParamList = {
   Home: undefined
-  Detail: { title: string; description: string }
+  Detail: { title: string; description: string; photos?: string[] }
   AddPost: undefined
 }
 
