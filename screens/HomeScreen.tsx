@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
     padding: 16,
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
   fab: {
     position: 'absolute',
